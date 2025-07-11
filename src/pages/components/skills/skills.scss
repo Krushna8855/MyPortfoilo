@@ -1,0 +1,109 @@
+.skills-modern {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  overflow-x: hidden;
+
+  h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #ff4d5a;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+
+    button {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #333;
+      padding: 0.7rem 1.5rem;
+      color: #fff;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        background: #ff4d5a;
+        box-shadow: 0 0 15px rgba(255, 77, 90, 0.7);
+      }
+
+      &.active {
+        background: #ff4d5a;
+        color: #fff;
+        box-shadow: 0 0 15px rgba(255, 77, 90, 0.7);
+      }
+    }
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 0;
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      width: 100%;
+      max-width: 180px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+      animation-delay: calc(0.1s * var(--i));
+
+      i {
+        font-size: 3rem;
+        color: #00d9ff;
+        margin-bottom: 0.7rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      span {
+        display: block;
+        margin-top: 0.5rem;
+        font-weight: bold;
+        color: #fff;
+        letter-spacing: 0.5px;
+      }
+
+      &:hover {
+        background: #ff4d5a;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 77, 90, 0.7);
+
+        i {
+          color: #fff;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,182 @@
+.projects-modern {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  background-size: 400% 400%;
+  animation: bgAnimate 15s ease infinite;
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow: hidden;
+
+  h2 span {
+    font-size: 3rem;
+    color: #00d9ff;
+    text-shadow: 0 0 20px #00d9ff;
+    border-bottom: 3px solid #ff4d5a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    animation: glowPulse 2s infinite alternate;
+  }
+
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      padding: 1.5rem;
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideFade 0.8s forwards;
+      animation-delay: calc(0.2s * var(--i));
+      position: relative;
+
+      &:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 0 25px #00d9ff;
+        border-color: #00d9ff;
+      }
+
+      &.active {
+        box-shadow: 0 0 25px #ff4d5a;
+        border-color: #ff4d5a;
+      }
+
+      .project-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        margin-bottom: 1rem;
+
+        .project-number {
+          font-weight: bold;
+          color: #00d9ff;
+          text-shadow: 0 0 15px #00d9ff;
+          margin-right: 1rem;
+          font-size: 1.3rem;
+        }
+
+        h3 {
+          flex: 1;
+          font-size: 1.5rem;
+          color: #fff;
+          text-shadow: 0 0 8px #00d9ff;
+          transition: color 0.3s ease;
+        }
+
+        i {
+          color: #00d9ff;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover h3 {
+          color: #ff4d5a;
+        }
+
+        &:hover i {
+          transform: scale(1.2);
+          color: #ff4d5a;
+        }
+      }
+
+      .project-details {
+        margin-top: 1rem;
+        color: #ddd;
+
+        p {
+          margin-bottom: 1rem;
+          color: #fff;
+          font-weight: 500;
+          text-shadow: 0 0 5px #ff4d5a;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+
+          li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+
+            i {
+              color: #00d9ff;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+
+        .tech-icons {
+          display: flex;
+          gap: 1rem;
+          margin-top: 1rem;
+          flex-wrap: wrap;
+
+          img {
+            width: 35px;
+            height: 35px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+
+            &:hover {
+              filter: grayscale(0);
+              transform: scale(1.15);
+              box-shadow: 0 0 10px #00d9ff;
+            }
+          }
+        }
+
+        a {
+          display: inline-block;
+          margin-top: 1rem;
+          background: #ff4d5a;
+          color: #fff;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: all 0.3s ease;
+          box-shadow: 0 0 10px #ff4d5a;
+
+          &:hover {
+            background: #e63b4a;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff4d5a;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Background Animation */
+@keyframes bgAnimate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow Pulse Animation */
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #00d9ff; }
+  to { text-shadow: 0 0 25px #00d9ff; }
+}
+
+/* Card Slide + Fade Animation */
+@keyframes slideFade {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

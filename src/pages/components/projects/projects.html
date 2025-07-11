@@ -1,0 +1,33 @@
+<section class="projects-modern">
+  <h2><span>My Projects</span></h2>
+
+  <div class="projects-container">
+    <div *ngFor="let project of projects; let i = index" class="project-card" [class.active]="activeProject === i">
+      
+      <div class="project-header" (click)="toggleProject(i)">
+        <div class="project-number">#{{ i + 1 }}</div>
+        <h3>{{ project.name }}</h3>
+        <i class="fa-solid" [ngClass]="activeProject === i ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+
+      <div class="project-details" *ngIf="activeProject === i">
+        <p>{{ project.description }}</p>
+
+        <ul>
+          <li *ngFor="let f of project.features">
+            <i class="fa-solid fa-circle-check"></i> {{ f }}
+          </li>
+        </ul>
+
+        <div class="tech-icons">
+          <img *ngFor="let tech of project.technologies" 
+               [src]="'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/' + formatIcon(tech) + '/' + formatIcon(tech) + '-original.svg'"
+               [alt]="tech" />
+        </div>
+
+        <a *ngIf="project.link" [href]="project.link" target="_blank">🚀 View Live</a>
+      </div>
+
+    </div>
+  </div>
+</section>

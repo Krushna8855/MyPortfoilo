@@ -1,0 +1,106 @@
+.contact-combo {
+  min-height: 90vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  background-size: 400% 400%;
+  animation: bgFlow 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  .glass-container {
+    display: flex;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px #00d9ff;
+    }
+
+    .glass-left {
+      flex: 1;
+      padding: 2rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      text-align: center;
+
+      h2 {
+        font-size: 2.5rem;
+        color: #00d9ff;
+        text-shadow: 0 0 15px #00d9ff;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #ddd;
+      }
+
+      .circle-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+
+        a {
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(5px);
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 1.6rem;
+          box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+          transition: all 0.4s ease;
+
+          &:hover {
+            color: #00d9ff;
+            box-shadow: 0 0 20px #00d9ff;
+            transform: scale(1.2) rotate(5deg);
+          }
+        }
+      }
+    }
+
+    .glass-right {
+      flex: 1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+  .glass-container {
+    flex-direction: column;
+
+    .glass-right {
+      img {
+        height: 200px;
+      }
+    }
+  }
+}

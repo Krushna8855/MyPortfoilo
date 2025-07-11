@@ -1,0 +1,22 @@
+<section class="skills-modern">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <h2>My Skills</h2>
+
+  <div class="tabs">
+    <button [class.active]="activeTab === 'frontend'" (click)="setTab('frontend')">Frontend</button>
+    <button [class.active]="activeTab === 'backend'" (click)="setTab('backend')">Backend</button>
+    <button [class.active]="activeTab === 'tools'" (click)="setTab('tools')">Tools</button>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card" *ngFor="let skill of filteredSkills; let i = index" [style.--i]="i">
+      <a *ngIf="skill.link" [href]="skill.link" target="_blank">
+        <i [class]="skill.icon"></i>
+      </a>
+      <i *ngIf="!skill.link" [class]="skill.icon"></i>
+
+      <span>{{ skill.name }}</span>
+    </div>
+  </div>
+</section>

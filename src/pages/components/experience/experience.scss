@@ -1,0 +1,108 @@
+.experience-modern {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  background-size: 400% 400%;
+  animation: bgMove 15s ease infinite;
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+
+  h2 span {
+    font-size: 3rem;
+    color: #00d9ff;
+    text-shadow: 0 0 20px #00d9ff;
+    border-bottom: 3px solid #ff4d5a;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    animation: glowPulse 2s infinite alternate;
+  }
+
+  .experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 3rem auto;
+
+    .exp-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: left;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 25px #00d9ff;
+        border-color: #00d9ff;
+      }
+
+      &.current {
+        border-color: #ff4d5a;
+        box-shadow: 0 0 25px #ff4d5a;
+      }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        h3 {
+          font-size: 1.8rem;
+          color: #00d9ff;
+          text-shadow: 0 0 10px #00d9ff;
+        }
+
+        span {
+          color: #fff;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+      }
+
+      .duration {
+        margin: 0.5rem 0;
+        color: #ff4d5a;
+        font-weight: bold;
+      }
+
+      .company-info {
+        margin-bottom: 1rem;
+        color: #ddd;
+      }
+
+      .tasks {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.5rem;
+          display: flex;
+          align-items: center;
+
+          &::before {
+            content: '✔️';
+            margin-right: 0.5rem;
+            color: #00d9ff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #00d9ff; }
+  to { text-shadow: 0 0 25px #00d9ff; }
+}
