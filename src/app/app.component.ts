@@ -1,76 +1,31 @@
-// // // import { Component } from '@angular/core';
-// // // import { RouterOutlet } from '@angular/router';
-// // // import { Navbar } from '../pages/components/navbar/navbar';
-// // // import { Footer } from '../pages/components/footer/footer';
-
-// // // @Component({
-// // //   selector: 'app-root',
-// // //   standalone: true,
-// // //   imports: [RouterOutlet, Navbar, Footer],
-// // //   templateUrl: './app.html',
-// // //   styleUrl: './app.scss',
-// // // })
-// // // export class App {}
-// // import { Component } from '@angular/core';
-// // import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-
-// // @Component({
-// //   selector: 'app-root',
-// //   template: `<h1>Firebase Connected</h1>
-// //              <button (click)="addData()">Add Data</button>`
-// // })
-// // export class AppComponent {
-// //   constructor(private firestore: Firestore) {}
-
-// //   addData() {
-// //     const coll = collection(this.firestore, 'demo');
-// //     addDoc(coll, { name: 'Krushna', created: new Date() }).then(() => {
-// //       console.log('Data Added');
-// //     });
-// //   }
-// // }
-// import { Component } from '@angular/core';
-// import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-// import { CommonModule } from '@angular/common';
-
-// @Component({
-//   selector: 'app-root',
-//   standalone: true,
-//   imports: [CommonModule],
-//   template: `<h1>Firebase Connected</h1>
-//              <button (click)="addData()">Add Data</button>`
-// })
-// export class AppComponent {
-//   constructor(private firestore: Firestore) {}
-
-//   addData() {
-//     const coll = collection(this.firestore, 'demo');
-//     addDoc(coll, { name: 'Krushna', created: new Date() }).then(() => {
-//       console.log('Data Added');
-//     });
-//   }
-// }
 import { Component } from '@angular/core';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { Navbar } from '../pages/components/navbar/navbar';
+import { Footer } from '../pages/components/footer/footer';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
-  template: `<h1>Firebase Connected</h1>
-             <button (click)="addData()">Add Data</button>`
-})
-export class AppComponent {
-  constructor(private firestore: Firestore) {}
+  imports: [CommonModule, RouterOutlet, Navbar, Footer],
+  template: `
+    <app-navbar></app-navbar>
 
-  addData() {
-    const coll = collection(this.firestore, 'demo');
-    addDoc(coll, { name: 'Krushna', created: new Date() }).then(() => {
-      console.log('Data Added');
-    });
-  }
-}
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+
+    <app-footer></app-footer>
+  `,
+  styles: [`
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+      background: #ffffff;
+      color: #222;
+    }
+  `]
+})
 export class AppComponent {
   title = 'Your Portfolio';
 }
