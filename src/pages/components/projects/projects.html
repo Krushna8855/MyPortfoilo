@@ -1,33 +1,49 @@
-<section class="projects-modern">
-  <h2><span>My Projects</span></h2>
+<section class="projects-section container">
+  <div class="section-header" data-aos="fade-up">
+    <h2 class="section-title"><span>03.</span> Some Things I’ve Built</h2>
+    <div class="header-line"></div>
+  </div>
 
-  <div class="projects-container">
-    <div *ngFor="let project of projects; let i = index" class="project-card" [class.active]="activeProject === i">
-      
-      <div class="project-header" (click)="toggleProject(i)">
-        <div class="project-number">#{{ i + 1 }}</div>
-        <h3>{{ project.name }}</h3>
-        <i class="fa-solid" [ngClass]="activeProject === i ? 'fa-minus' : 'fa-plus'"></i>
-      </div>
-
-      <div class="project-details" *ngIf="activeProject === i">
-        <p>{{ project.description }}</p>
-
-        <ul>
-          <li *ngFor="let f of project.features">
-            <i class="fa-solid fa-circle-check"></i> {{ f }}
-          </li>
-        </ul>
-
-        <div class="tech-icons">
-          <img *ngFor="let tech of project.technologies" 
-               [src]="'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/' + formatIcon(tech) + '/' + formatIcon(tech) + '-original.svg'"
-               [alt]="tech" />
+  <div class="projects-grid">
+    @for (project of projects; track project.name) {
+      <div class="project-card" data-aos="fade-up" [style.animation-delay]="$index * 100 + 'ms'">
+        <div class="project-inner">
+          <header>
+            <div class="project-top">
+              <div class="folder">
+                <i class="far fa-folder"></i>
+              </div>
+              <div class="project-links">
+                @if (project.link) {
+                  <a [href]="project.link" target="_blank" title="External Link">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                }
+                @if (project.github) {
+                  <a [href]="project.github" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                }
+              </div>
+            </div>
+            <h3 class="project-title">{{ project.name }}</h3>
+            <div class="project-description">
+              <p>{{ project.description }}</p>
+            </div>
+          </header>
+          <footer>
+            <ul class="project-tech-list">
+              @for (tech of project.technologies; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+          </footer>
         </div>
-
-        <a *ngIf="project.link" [href]="project.link" target="_blank">🚀 View Live</a>
       </div>
+    }
+  </div>
 
-    </div>
+  <div class="more-projects">
+    <a href="https://github.com/Krushna8855" target="_blank" class="neon-btn">Show More on GitHub</a>
   </div>
 </section>

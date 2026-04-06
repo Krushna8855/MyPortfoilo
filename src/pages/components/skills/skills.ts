@@ -25,26 +25,37 @@ import { CommonModule } from '@angular/common';
 //   });
 // }
 
-activeTab: string = 'frontend';
+  activeTab: string = 'frontend';
 
   skills = [
-    { name: 'Angular', icon: 'fa-brands fa-angular', category: 'frontend', link: 'https://angular.io' },
+    // Frontend
     { name: 'React', icon: 'fa-brands fa-react', category: 'frontend', link: 'https://react.dev' },
-    { name: 'Bootstrap', icon: 'fa-brands fa-bootstrap', category: 'frontend', link: 'https://getbootstrap.com' },
+    { name: 'Angular', icon: 'fa-brands fa-angular', category: 'frontend', link: 'https://angular.io' },
     { name: 'HTML5', icon: 'fa-brands fa-html5', category: 'frontend', link: '' },
     { name: 'CSS3', icon: 'fa-brands fa-css3-alt', category: 'frontend', link: '' },
-    { name: 'SCSS', icon: 'fa-brands fa-sass', category: 'frontend', link: '' },
     { name: 'JavaScript', icon: 'fa-brands fa-js', category: 'frontend', link: '' },
-
+    
+    // Backend
+    { name: 'Node.js', icon: 'fa-brands fa-node-js', category: 'backend', link: '' },
+    { name: 'Express.js', icon: 'fa-solid fa-server', category: 'backend', link: '' },
+    { name: 'Spring Boot', icon: 'fa-solid fa-leaf', category: 'backend', link: '' },
     { name: 'Java', icon: 'fa-brands fa-java', category: 'backend', link: '' },
     { name: 'Python', icon: 'fa-brands fa-python', category: 'backend', link: '' },
     { name: 'MySQL', icon: 'fa-solid fa-database', category: 'backend', link: '' },
-
+    { name: 'Firebase', icon: 'fa-solid fa-fire', category: 'backend', link: '' },
+    
+    // Mobile
+    { name: 'React Native', icon: 'fa-brands fa-react', category: 'mobile', link: '' },
+    { name: 'Android (Java)', icon: 'fa-brands fa-android', category: 'mobile', link: '' },
+    { name: 'iOS', icon: 'fa-brands fa-apple', category: 'mobile', link: '' },
+    { name: 'Ionic', icon: 'fa-solid fa-mobile-screen', category: 'mobile', link: '' },
+    
+    // Tools
     { name: 'Git & GitHub', icon: 'fa-brands fa-github', category: 'tools', link: 'https://github.com' },
-    { name: 'LinkedIn', icon: 'fa-brands fa-linkedin-in', category: 'tools', link: 'https://linkedin.com/in/krushna-ghotekar-1223a222a' },
-    { name: 'ChatGPT', icon: 'fa-brands fa-robot', category: 'tools', link: 'https://chat.openai.com' },
-    { name: 'GitHub Copilot', icon: 'fa-brands fa-github', category: 'tools', link: 'https://github.com/features/copilot' },
-    { name: 'Microsoft Copilot', icon: 'fa-solid fa-brain', category: 'tools', link: 'https://www.microsoft.com/en-us/microsoft-copilot' }
+    { name: 'Postman', icon: 'fa-solid fa-envelope-open-text', category: 'tools', link: '' },
+    { name: 'Android Studio', icon: 'fa-solid fa-code', category: 'tools', link: '' },
+    { name: 'VS Code', icon: 'fa-solid fa-file-code', category: 'tools', link: '' },
+    { name: 'Xcode', icon: 'fa-solid fa-terminal', category: 'tools', link: '' }
   ];
 
   get filteredSkills() {

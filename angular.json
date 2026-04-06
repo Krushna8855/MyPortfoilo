@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Krushna_Portfolio": {
+    "krushna-portfolio": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Krushna_Portfolio:build:production"
+              "buildTarget": "krushna-portfolio:build:production"
             },
             "development": {
-              "buildTarget": "Krushna_Portfolio:build:development"
+              "buildTarget": "krushna-portfolio:build:development"
             }
           },
           "defaultConfiguration": "development"

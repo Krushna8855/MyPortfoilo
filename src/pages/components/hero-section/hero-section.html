@@ -1,34 +1,55 @@
-<section class="hero-modern">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-  <div class="hero-container">
-
-    <div class="hero-left">
-      <h1><span class="highlight glow-text">Krushna Ghotekar</span></h1>
-      <p class="role"><span class="typed-text"></span><span class="cursor">|</span></p>
-      <p class="intro">
-        I build responsive, scalable, modern web experiences using <span class="highlight">Angular</span>, <span class="highlight">Ionic</span>, <span class="highlight">React</span>, and <span class="highlight">Java</span>.
-      </p>
-
-      <div class="hero-buttons">
-        <a routerLink="/projects" class="hero-btn">View My Projects</a>
-        <a href="/KrushnaGhotekarCV.pdf" download class="hero-btn secondary">Download CV</a>
-      </div>
-
-      <div class="social-icons">
-        <a href="https://linkedin.com/in/krushna-ghotekar-1223a222a" target="_blank">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com" target="_blank">
-          <i class="fa-brands fa-github"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <img src="/krushna.png" alt="Krushna Ghotekar" />
-    </div>
-
+<section class="hero-section">
+  <!-- Interactive Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
   </div>
 
+  <div class="hero-container container">
+    <div class="hero-content" data-aos="fade-right">
+      <p class="hero-mono neon">Hi, my name is</p>
+      <h1 class="hero-title">Krushna Ghotekar<span>.</span></h1>
+      <h2 class="hero-subtitle">
+        I build <span class="typed-text">{{ displayText() }}</span><span class="cursor">|</span>
+      </h2>
+      <p class="hero-desc">
+        I'm a <span class="highlight">Full-Stack Developer</span> specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products at <span class="highlight">Scale</span>.
+      </p>
+      
+      <div class="hero-btns">
+        <a routerLink="/projects" class="neon-btn">Check out my work!</a>
+        <a href="/KrushnaGhotekarCV.pdf" download class="resume-btn">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+
+      <div class="hero-socials">
+        <a href="https://linkedin.com/in/krushna-ghotekar" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Krushna8855" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:krishnaghotekar7876@gmail.com" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrapper" data-aos="zoom-in">
+      <div class="image-border"></div>
+      <div class="image-container">
+        <img src="/krushna.png" alt="Krushna Ghotekar" class="profile-img"/>
+        <div class="image-overlay"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll Down</span>
+  </div>
 </section>

@@ -1,108 +1,137 @@
-.experience-modern {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-  background-size: 400% 400%;
-  animation: bgMove 15s ease infinite;
-  color: #fff;
-  padding: 4rem 2rem;
-  text-align: center;
-  font-family: 'Segoe UI', Arial, sans-serif;
+.inner-experience {
+  display: flex;
+  min-height: 400px;
+  max-width: 700px;
+  margin: 0 auto;
 
-  h2 span {
-    font-size: 3rem;
-    color: #00d9ff;
-    text-shadow: 0 0 20px #00d9ff;
-    border-bottom: 3px solid #ff4d5a;
-    padding-bottom: 0.5rem;
-    display: inline-block;
-    animation: glowPulse 2s infinite alternate;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.job-list {
+  position: relative;
+  z-index: 3;
+  width: max-content;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  @media (max-width: 600px) {
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
   }
 
-  .experience-container {
+  button {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 900px;
-    margin: 3rem auto;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+    padding: 0 20px 2px;
+    border-left: 2px solid var(--bg-glass);
+    background-color: transparent;
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    text-align: left;
+    white-space: nowrap;
+    transition: var(--transition);
+    cursor: pointer;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
 
-    .exp-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: left;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      transition: all 0.4s ease;
+    @media (max-width: 600px) {
+      justify-content: center;
+      min-width: 120px;
+      padding: 0 15px;
+      border-left: 0;
+      border-bottom: 2px solid var(--bg-glass);
+    }
 
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 25px #00d9ff;
-        border-color: #00d9ff;
+    &:hover, &.active {
+      color: var(--primary-color);
+      background-color: rgba(0, 217, 255, 0.05);
+    }
+
+    &.active {
+      border-left-color: var(--primary-color);
+      @media (max-width: 600px) {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary-color);
       }
+    }
+  }
 
-      &.current {
-        border-color: #ff4d5a;
-        box-shadow: 0 0 25px #ff4d5a;
-      }
+  .job-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 2px;
+    height: 42px;
+    background: var(--primary-color);
+    transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-delay: 0.1s;
 
-      .exp-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-
-        h3 {
-          font-size: 1.8rem;
-          color: #00d9ff;
-          text-shadow: 0 0 10px #00d9ff;
-        }
-
-        span {
-          color: #fff;
-          font-weight: bold;
-          font-size: 1rem;
-        }
-      }
-
-      .duration {
-        margin: 0.5rem 0;
-        color: #ff4d5a;
-        font-weight: bold;
-      }
-
-      .company-info {
-        margin-bottom: 1rem;
-        color: #ddd;
-      }
-
-      .tasks {
-        list-style: none;
-        padding: 0;
-
-        li {
-          margin-bottom: 0.5rem;
-          display: flex;
-          align-items: center;
-
-          &::before {
-            content: '✔️';
-            margin-right: 0.5rem;
-            color: #00d9ff;
-          }
-        }
-      }
+    @media (max-width: 600px) {
+      display: none;
     }
   }
 }
 
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.job-content {
+  position: relative;
+  width: 100%;
+  padding: 10px 0 10px 40px;
+
+  @media (max-width: 600px) {
+    padding: 0;
+  }
 }
 
-@keyframes glowPulse {
-  from { text-shadow: 0 0 10px #00d9ff; }
-  to { text-shadow: 0 0 25px #00d9ff; }
+.job-details {
+  .job-role {
+    margin-bottom: 2px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+
+  .job-duration {
+    margin-bottom: 25px;
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+  }
+}
+
+.job-tasks {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: var(--text-dim);
+    font-size: 15px;
+
+    &::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      line-height: normal;
+    }
+  }
 }

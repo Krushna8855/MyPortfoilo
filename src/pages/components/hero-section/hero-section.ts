@@ -1,43 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal, effect } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './hero-section.html',
   styleUrl: './hero-section.scss',
 })
-export class HeroSection {
+export class HeroSection implements OnInit {
+  roles = ["Mobile & Full-Stack Developer", "React Native Expert", "Android Developer", "Node.js Developer"];
+  displayText = signal('');
+  currentIndex = 0;
+  charIndex = 0;
+  isDeleting = false;
+
   ngOnInit(): void {
-  const roles = ["Frontend Developer", "Angular Expert", "Web Enthusiast"];
-  let i = 0, charIndex = 0;
+    this.type();
+  }
 
-  setTimeout(() => {
-    const typingElement = document.querySelector('.typed-text') as HTMLElement | null;
-
-    if (typingElement) {
-      const type = () => {
-        if (charIndex < roles[i].length) {
-          typingElement.textContent += roles[i].charAt(charIndex);
-          charIndex++;
-          setTimeout(type, 100);
-        } else {
-          setTimeout(erase, 1500);
-        }
-      };
-
-      const erase = () => {
-        if (charIndex > 0) {
-          typingElement.textContent = roles[i].substring(0, charIndex - 1);
-          charIndex--;
-          setTimeout(erase, 50);
-        } else {
-          i = (i + 1) % roles.length;
-          setTimeout(type, 500);
-        }
-      };
-
-      type();
+  type() {
+    const currentFullText = this.roles[this.currentIndex];
+    
+    if (this.isDeleting) {
+      this.displayText.set(currentFullText.substring(0, this.charIndex - 1));
+      this.charIndex--;
+    } else {
+      this.displayText.set(currentFullText.substring(0, this.charIndex + 1));
+      this.charIndex++;
     }
-  }, 0);
-}
+
+    let typeSpeed = this.isDeleting ? 50 : 100;
+
+    if (!this.isDeleting && this.charIndex === currentFullText.length) {
+      typeSpeed = 2000; // Pause at end
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.charIndex === 0) {
+      this.isDeleting = false;
+      this.currentIndex = (this.currentIndex + 1) % this.roles.length;
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
 }

@@ -9,73 +9,48 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./projects.scss']
 })
 export class Projects {
-  activeProject: number | null = null;
-
   projects = [
     {
-      name: 'Offline Notes App',
-      description: 'Offline-first notes app with real-time sync & conflict resolution.',
-      features: ['Anonymous Login', 'Offline support', 'Firestore Sync', 'Conflict Handling'],
-      technologies: ['Angular', 'Firebase', 'Node.js'],
-      link: ''
+      name: 'Finance Dashboard',
+      description: 'A full-stack Finance Dashboard with real-time insights, built with a standalone frontend and Firestore Database.',
+      technologies: ['React', 'Node.js', 'Firestore', 'Vercel'],
+      link: 'https://finance-dashboard-xi-blond.vercel.app/',
+      github: 'https://github.com/Krushna8855/Finance-Dashboard'
     },
     {
-      name: 'Smart Dustbin',
-      description: 'IoT-based Smart Dustbin with food waste detection & classification.',
-      features: ['Real-time Detection', 'Edible/Non-edible Classification', 'Efficient Segregation'],
-      technologies: ['Python', 'OpenCV', 'IoT'],
-      link: ''
+      name: 'Retail Banking Processor',
+      description: 'A backend-focused project for retail banking transaction processing, implementing secure API endpoints and database management.',
+      technologies: ['Python', 'Django/Flask', 'SQLite/MySQL'],
+      link: '',
+      github: 'https://github.com/Krushna8855/retail-banking-transaction-processing'
     },
     {
-      name: 'Billing Software',
-      description: 'Invoice & Sales Management system built with Angular, Ionic & React.',
-      features: ['Real-time Invoicing', 'Sales Automation', 'Responsive Design', 'Cross-platform Compatible'],
-      technologies: ['Angular', 'Ionic', 'React'],
-      link: ''
+      name: 'Green Grow - Smart Agriculture',
+      description: 'Role-based full-stack web application with JWT authentication, real-time market rates, and weather insights for farmers.',
+      technologies: ['React', 'Node.js', 'Firebase', 'JWT'],
+      link: '',
+      github: 'https://github.com/Krushna8855'
     },
     {
-      name: 'EuroLand Dairy Management System',
-      description: 'Web-based Dairy Management platform with real-time product management & order processing.',
-      features: ['Dynamic Product Catalog', 'Secure Order Forms', 'Responsive UI', 'Database Integration'],
-      technologies: ['HTML5', 'CSS3', 'Java', 'MySQL'],
-      link: ''
+      name: 'Blog Management System',
+      description: 'Hackathon project: full-stack blog platform with secure CRUD operations, user authentication, and search/category filtering.',
+      technologies: ['React', 'Node.js', 'Express.js', 'MySQL'],
+      link: '',
+      github: 'https://github.com/Krushna8855'
     },
     {
-      name: 'Smart Expense Tracker',
-      description: 'Full-stack Personal Finance Manager using MERN Stack with JWT Authentication.',
-      features: ['Add/Delete Transactions', 'Real-time Balance Summary', 'Expense Analytics with Charts'],
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      link: ''
+      name: 'Food Ordering App',
+      description: 'Android app featuring user authentication, restaurant browsing, cart management, and real-time order tracking via Firebase.',
+      technologies: ['Android', 'Java', 'Firebase'],
+      link: '',
+      github: 'https://github.com/Krushna8855'
     },
     {
-      name: 'Smart Calculator - Java Swing',
-      description: 'Desktop-based Calculator application with OOP principles & error handling.',
-      features: ['Basic Arithmetic', 'Decimal Precision', 'Error Handling', 'Clean UI'],
-      technologies: ['Java'],
-      link: ''
+      name: 'Smart Dustbin for Waste',
+      description: 'ML-based food detection and waste segregation system using Raspberry Pi, OpenCV, and image classification algorithms.',
+      technologies: ['Python', 'OpenCV', 'IoT', 'Raspberry Pi'],
+      link: '',
+      github: 'https://github.com/Krushna8855'
     }
   ];
-formatIcon(tech: string): string {
-  switch (tech.toLowerCase()) {
-    case 'html5': return 'html5';
-    case 'css3': return 'css3';
-    case 'node.js': return 'nodejs';
-    case 'express': return 'express';
-    case 'firebase': return 'firebase';
-    case 'react': return 'react';
-    case 'angular': return 'angular';
-    case 'ionic': return 'ionic';
-    case 'java': return 'java';
-    case 'mysql': return 'mysql';
-    case 'mongodb': return 'mongodb';
-    case 'python': return 'python';
-    case 'opencv': return 'opencv';
-    case 'iot': return 'arduino'; // Example icon for IoT
-    default: return tech.toLowerCase();
-  }
-}
-
-  toggleProject(index: number) {
-    this.activeProject = this.activeProject === index ? null : index;
-  }
 }
