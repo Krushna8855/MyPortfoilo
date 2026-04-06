@@ -21,11 +21,13 @@ html, body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: var(--font-main);
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 * {
@@ -51,11 +53,18 @@ html, body {
 
 /* 🧩 Common Classes */
 .glass {
-  background: var(--bg-glass);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+  transition: var(--transition);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 217, 255, 0.3);
+  }
 }
 
 .text-glow {
@@ -86,10 +95,11 @@ html, body {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 100px 20px;
+  padding: 120px 25px 60px;
+  width: 100%;
 
   @media (max-width: 768px) {
-    padding: 80px 20px;
+    padding: 100px 20px 40px;
   }
 }
 
@@ -130,7 +140,26 @@ html, body {
   }
 }
 
+.main-content {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 22px !important;
+  }
+  .container {
+    padding-top: 100px !important;
+  }
+}
+
 .highlight {
   color: var(--primary-color);
-  font-weight: 500;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
 }

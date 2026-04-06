@@ -15,13 +15,7 @@
     @for (skill of filteredSkills; track skill.name) {
       <div class="skill-card glass" data-aos="zoom-in" [style.animation-delay]="$index * 50 + 'ms'">
         <div class="skill-icon-box">
-          @if (skill.link) {
-            <a [href]="skill.link" target="_blank">
-              <i [class]="skill.icon"></i>
-            </a>
-          } @else {
-            <i [class]="skill.icon"></i>
-          }
+          <i [class]="skill.icon"></i>
         </div>
         <span class="skill-name">{{ skill.name }}</span>
       </div>

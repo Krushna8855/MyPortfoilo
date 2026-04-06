@@ -1,7 +1,7 @@
 <header class="navbar-header" [class.scrolled]="isScrolled">
   <div class="nav-container">
     <div class="logo">
-      <a href="#"><span>K</span>rushna</a>
+      <a routerLink="/"><span>K</span>rushna</a>
     </div>
 
     <!-- 🍔 Hamburger Menu Button -->
@@ -14,7 +14,7 @@
       <ul class="nav-links">
         @for (link of navLinks; track link.name) {
           <li [style.transition-delay]="$index * 100 + 'ms'">
-            <a href="{{ link.path }}" (click)="closeMenu()">
+            <a [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
               <i class="{{ link.icon }}"></i>
               <span>{{ link.name }}</span>
             </a>

@@ -7,12 +7,10 @@
   <div class="projects-grid">
     @for (project of projects; track project.name) {
       <div class="project-card" data-aos="fade-up" [style.animation-delay]="$index * 100 + 'ms'">
-        <div class="project-inner">
-          <header>
-            <div class="project-top">
-              <div class="folder">
-                <i class="far fa-folder"></i>
-              </div>
+        <div class="project-inner glass">
+          <div class="project-image-wrapper">
+            <img [src]="project.image" [alt]="project.name" class="project-img">
+            <div class="project-overlay">
               <div class="project-links">
                 @if (project.link) {
                   <a [href]="project.link" target="_blank" title="External Link">
@@ -26,24 +24,32 @@
                 }
               </div>
             </div>
-            <h3 class="project-title">{{ project.name }}</h3>
+          </div>
+          
+          <div class="project-body">
+            <div class="project-header">
+              <div class="folder">
+                <i class="far fa-folder"></i>
+              </div>
+              <h3 class="project-title">{{ project.name }}</h3>
+            </div>
+            
             <div class="project-description">
               <p>{{ project.description }}</p>
             </div>
-          </header>
-          <footer>
+            
             <ul class="project-tech-list">
               @for (tech of project.technologies; track tech) {
                 <li>{{ tech }}</li>
               }
             </ul>
-          </footer>
+          </div>
         </div>
       </div>
     }
   </div>
 
   <div class="more-projects">
-    <a href="https://github.com/Krushna8855" target="_blank" class="neon-btn">Show More on GitHub</a>
+    <a href="https://github.com/Krushna8855" target="_blank" class="neon-btn">More on GitHub</a>
   </div>
 </section>

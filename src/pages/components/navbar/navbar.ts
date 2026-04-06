@@ -14,12 +14,13 @@ export class Navbar {
   isScrolled = false;
 
   navLinks = [
-    { name: 'About', path: '#about', icon: 'fas fa-user-astronaut' },
-    { name: 'Experience', path: '#experience', icon: 'fas fa-briefcase' },
-    { name: 'Skills', path: '#skills', icon: 'fas fa-rocket' },
-    { name: 'Projects', path: '#projects', icon: 'fas fa-layer-group' },
-    { name: 'Education', path: '#education', icon: 'fas fa-graduation-cap' },
-    { name: 'Contact', path: '#contact', icon: 'fas fa-paper-plane' },
+    { name: 'Home', path: '/', icon: 'fas fa-home' },
+    { name: 'About', path: '/about', icon: 'fas fa-user-astronaut' },
+    { name: 'Experience', path: '/experience', icon: 'fas fa-briefcase' },
+    { name: 'Skills', path: '/skills', icon: 'fas fa-rocket' },
+    { name: 'Projects', path: '/projects', icon: 'fas fa-layer-group' },
+    { name: 'Education', path: '/education', icon: 'fas fa-graduation-cap' },
+    { name: 'Contact', path: '/contact', icon: 'fas fa-paper-plane' },
   ];
 
   @HostListener('window:scroll', [])
