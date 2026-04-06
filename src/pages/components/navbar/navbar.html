@@ -1,29 +1,37 @@
-<header class="navbar-header glass">
+<header class="navbar-header" [class.scrolled]="isScrolled">
   <div class="nav-container">
     <div class="logo">
-      <a routerLink="/">KG<span>.</span></a>
+      <a href="#"><span>K</span>rushna</a>
     </div>
 
-    <nav class="nav-menu">
+    <!-- 🍔 Hamburger Menu Button -->
+    <button class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle Navigation">
+      <div class="hamburger"></div>
+    </button>
+
+    <!-- 🧭 Navigation Links -->
+    <nav class="nav-menu" [class.open]="isMenuOpen">
       <ul class="nav-links">
-        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-        <li><a routerLink="/skills" routerLinkActive="active">Skills</a></li>
-        <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
-        <li><a routerLink="/experience" routerLinkActive="active">Experience</a></li>
-        <li><a routerLink="/education" routerLinkActive="active">Education</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        @for (link of navLinks; track link.name) {
+          <li [style.transition-delay]="$index * 100 + 'ms'">
+            <a href="{{ link.path }}" (click)="closeMenu()">
+              <i class="{{ link.icon }}"></i>
+              <span>{{ link.name }}</span>
+            </a>
+          </li>
+        }
       </ul>
-    </nav>
 
-    <div class="nav-actions">
-      <a href="https://github.com" target="_blank" class="social-link">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://linkedin.com/in/krushna-ghotekar-1223a222a" target="_blank" class="social-link">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-      <a routerLink="/contact" class="cta-mini">Hire Me</a>
-    </div>
+      <div class="nav-actions">
+        <a href="https://github.com/Krushna8855" target="_blank" class="social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/krushna-ghotekar" target="_blank" class="social-link" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:krishnaghotekar7876@gmail.com" class="cta-mini">Hire Me</a>
+      </div>
+    </nav>
   </div>
 </header>
+<div class="overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>

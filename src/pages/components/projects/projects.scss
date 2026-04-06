@@ -1,9 +1,10 @@
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 15px;
   position: relative;
   margin-top: 50px;
+  width: 100%;
 }
 
 .project-card {
@@ -30,12 +31,14 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  height: 100%;
+  width: 100%;
+  max-width: 100%;
   padding: 2rem 1.75rem;
   border-radius: 4px;
   background-color: #112240;
   transition: var(--transition);
   border: 1px solid transparent;
+  overflow: hidden;
 }
 
 .project-top {

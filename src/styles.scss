@@ -86,7 +86,11 @@ html, body {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 100px 20px;
+
+  @media (max-width: 768px) {
+    padding: 80px 20px;
+  }
 }
 
 .section-header {
@@ -96,7 +100,7 @@ html, body {
   width: 100%;
 
   .section-title {
-    font-size: clamp(26px, 5vw, 32px);
+    font-size: clamp(24px, 5vw, 32px);
     font-weight: 700;
     color: var(--text-main);
     margin: 0;
@@ -106,18 +110,23 @@ html, body {
     span {
       color: var(--primary-color);
       font-family: 'Space Mono', monospace;
-      font-size: clamp(16px, 3vw, 20px);
+      font-size: clamp(14px, 3vw, 18px);
       margin-right: 10px;
     }
   }
 
   .header-line {
     height: 1px;
-    width: 300px;
+    flex-grow: 1;
+    max-width: 300px;
     background-color: var(--bg-glass);
     margin-left: 20px;
     position: relative;
     top: 5px;
+
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 }
 

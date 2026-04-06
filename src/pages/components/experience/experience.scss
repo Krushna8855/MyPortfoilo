@@ -47,9 +47,11 @@
     @media (max-width: 600px) {
       justify-content: center;
       min-width: 120px;
+      flex-shrink: 0;
       padding: 0 15px;
       border-left: 0;
       border-bottom: 2px solid var(--bg-glass);
+      font-size: 13px;
     }
 
     &:hover, &.active {

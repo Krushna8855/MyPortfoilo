@@ -1,0 +1,7 @@
+{
+  "name": "krushna-portfolio",
+  "framework": "angular",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/krushna-portfolio/browser",
+  "installCommand": "npm install --legacy-peer-deps"
+}
